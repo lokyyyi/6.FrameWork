@@ -11,6 +11,8 @@ import org.aspectj.lang.annotation.Before;
 public class MyAspect {
 	@Before("execution(public * *(..))")
 	public void before(JoinPoint join) {
+		//System.out.println(join.getTarget().getClass());	//target의 class
+		//System.out.println(join.getSignature().getName());	//target의 method-name
 		System.out.println("qr코드를 찍는다.");
 	}
 	@After("execution(public * *(..))")
@@ -21,7 +23,7 @@ public class MyAspect {
 	public void returning(JoinPoint join, Object returnVal) {
 		System.out.println(returnVal +" 공부하는 날이었다.");
 	}
-	@AfterThrowing("excution(public * *(..))")
+	@AfterThrowing("execution(public * *(..))")
 	public void thorowing(JoinPoint join) {
 		System.out.println("주말이었다.");
 	}
