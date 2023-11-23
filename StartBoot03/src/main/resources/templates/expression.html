@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<p th:text="|Hello, ${name}님!|">Hello, $name</p>
+	<p th:text="${dto.subject}">dto.subject</p>
+	
+	<div th:object="${dto}">
+		<p th:text="*{subject}">subject</p>
+		<p th:text="*{subject}">subject</p>
+		<p th:text="*{subject}">subject</p>
+		<p th:text="*{subject}">subject</p>
+		<p th:text="*{subject}">subject</p>
+	</div>
+	<table border="1">
+		<tr th:each="dto:${list}">
+			<td th:object="${dto}">
+				<span th:text="*{subject}">subject</span>
+				<span th:text="|(*{seq})|">seq</span>
+			</td>
+		</tr>
+	</table>
+	
+	<table border="1">
+		<tr th:if="${iflist} ne null">
+			<td>iflist가 null이 아닙니다.</td>
+		</tr>
+		<tr th:unless="${iflist} ne null">
+			<td>iflist가 null이 맞습니다.</td>
+		</tr>	
+	</table>
+	
+	<a th:href="@{index.html}" >index</a>
+	<a th:href="@{util}">utility</a>
+	
+	<!--  -->
+	<h3 th:text="${session.pw}">session pw</h3>
+	<h3 th:text="${session['pw']}">session pw</h3>
+	
+	<h3 th:text="${#request.getParameter('id')}">getparameter</h3>
+	
+</body>
+</html>

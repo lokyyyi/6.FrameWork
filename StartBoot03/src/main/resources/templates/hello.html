@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="home.do">home</a>
-	<h1><a href="list.do">List..</a></h1>
+	<h1 th:text="${name}">Hello, name!</h1>
 </body>
 </html>
